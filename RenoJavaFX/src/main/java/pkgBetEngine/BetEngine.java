@@ -34,13 +34,11 @@ public class BetEngine {
 		try {
 			BE = LoadBettingEngine("BettingEngine.xml");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
 			SaveBettingEngine(BE);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

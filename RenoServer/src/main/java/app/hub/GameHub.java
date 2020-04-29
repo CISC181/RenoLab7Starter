@@ -95,48 +95,6 @@ public class GameHub extends Hub {
 				break;
 			}
 		}
-		
-		
-		
-		
-		
-		
-		
-//		if (HubPokerTable == null)
-//			HubPokerTable = new Table();
-//		
-//		if (message instanceof Action) {
-//			
-//			Action a = (Action)message;
-//
-//			switch (a.geteAction()) {
-//			case Sit:
-//				HubPokerTable.AddPlayerToTable(a.getActPlayer());
-//				resetOutput();
-//				sendToAll(HubPokerTable);				
-//				break;
-//			case Leave:
-//				HubPokerTable.RemovePlayerFromTable(a.getActPlayer());
-//				resetOutput();
-//				sendToAll(HubPokerTable);
-//				break;
-//			case TableState:
-//				resetOutput();
-//				sendToAll(HubPokerTable);
-//			case GameState:
-//				//TODO: Implement this
-//				break;
-//			case StartGameBlackJack:
-//				//TODO: Implement this	
-//				eGameType = eGameType.BLACKJACK;
-//
-//				break;
-//			case Draw:
-//				//TODO: Implement this
-//				break;
-//			}
-
-		// }
 	}
 
 }

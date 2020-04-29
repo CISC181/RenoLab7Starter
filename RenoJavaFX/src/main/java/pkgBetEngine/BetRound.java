@@ -85,7 +85,6 @@ public class BetRound {
 		try {
 			be = BetEngine.LoadBettingEngine("BettingEngine.xml");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		BetRound br =  be.getBetRound()
