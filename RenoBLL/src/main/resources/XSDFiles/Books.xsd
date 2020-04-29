@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="catalog">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="book" minOccurs="0" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="author" type="xsd:string">
+							</xsd:element>
+							<xsd:element name="description" type="xsd:string" />
+							<xsd:element name="genre" type="xsd:string" />
+
+
+							<xsd:element name="price">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:double">
+										<xsd:minExclusive value="0"></xsd:minExclusive>
+										<xsd:maxExclusive value="120"></xsd:maxExclusive>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="publish_date" type="xsd:dateTime" />
+							<xsd:element name="title" type="xsd:string" />
+						</xsd:sequence>
+						<xsd:attribute name="id" type="xsd:string" />
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="id" type="xsd:int"></xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+
+
+</xsd:schema>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<BetEngine>
+  <betRound>
+    <eBetRound>PREFLOP</eBetRound>
+    <cardRanks>
+      <cardRanks>KING</cardRanks>
+      <cardRanks>ACE</cardRanks>
+    </cardRanks>
+    <iScore>99</iScore>
+    <betRoundNumber>5</betRoundNumber>
+  </betRound>
+</BetEngine>
