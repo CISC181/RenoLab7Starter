@@ -6,77 +6,91 @@
 	<artifactId>RenoServer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<properties>
-		<JavaFX.Version>13</JavaFX.Version>
-		<JavaFX.Platform>win</JavaFX.Platform>
-		<!-- <JavaFX.Platform>mac</JavaFX.Platform> -->
-		<!-- <JavaFX.Platform>linux</JavaFX.Platform> -->
-
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>13</java.version>
-		<maven.compiler.source>${java.version}</maven.compiler.source>
-		<maven.compiler.target>${java.version}</maven.compiler.target>
-		<junit-platform.version>5.3.1</junit-platform.version>
-	</properties>
-
 	<build>
 		<plugins>
+			<plugin>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.2.1</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>app.Game</mainClass>
+								</transformer>
+							</transformers>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.0</version>
 				<configuration>
-					<argLine>
-						--illegal-access=permit
-					</argLine>
+					<release>15</release>
 				</configuration>
 			</plugin>
+
+
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>2.22.0</version>
+				<groupId>org.openjfx</groupId>
+				<artifactId>javafx-maven-plugin</artifactId>
+				<version>0.0.2</version>
 				<configuration>
-					<argLine>
-						--illegal-access=permit
-					</argLine>
+					<mainClass>pkgMain.HelloFX</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
 
 
-	<dependencies>
-		<dependency>
+	<properties>
+
+		<!-- Generic properties -->
+		<java.version>1.15</java.version>
+		<JavaFX.Version>15</JavaFX.Version>
+		<JavaFX.Platform>win</JavaFX.Platform>
+		<!-- <JavaFX.Platform>mac</JavaFX.Platform> -->
+		<!-- <JavaFX.Platform>linux</JavaFX.Platform> -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<!-- Spring -->
+		<spring-framework.version>5.1.8.RELEASE</spring-framework.version>
+
+		<!-- Hibernate / JPA -->
+		<hibernate.version>5.0.2.Final</hibernate.version>
+
+		<!-- Logging -->
+		<logback.version>1.2.3</logback.version>
+		<slf4j.version>1.7.12</slf4j.version>
+
+		<!-- Test -->
+		<junit.version>4.12</junit.version>
+
+	</properties>
+	
+    <dependencies>    
+    		<dependency>
 			<groupId>cisc.udel.edu</groupId>
 			<artifactId>RenoBLL</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<dependency>
+		<dependency>		
 			<groupId>cisc.udel.edu</groupId>
 			<artifactId>RenoJabber</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-api</artifactId>
-			<version>${junit-platform.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
-			<version>${junit-platform.version}</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
+		
+				<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-controls</artifactId>
 			<version>${JavaFX.Version}</version>
@@ -106,6 +120,15 @@
 			<version>${JavaFX.Version}</version>
 		</dependency>
 
-	</dependencies>
+		<!-- Jackson dependency for XML manipulation -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+		
+    </dependencies>
+    
+
 
 </project>
